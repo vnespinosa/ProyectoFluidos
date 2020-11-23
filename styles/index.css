@@ -37,7 +37,7 @@ a {
 .titulo1 {
     font-size: 2.7vw;
     background-color: #FFD902;
-    padding: 1% 3%;
+    padding: 2% 5%;
     height: 20%;
     width: 25%;
     text-align: center;
@@ -48,7 +48,7 @@ a {
 .titulo2 {
     font-size: 1.5vw;
     background-color: #FFD902;
-    padding: 1% 3%;
+    padding: 2% 5%;
     height: 20%;
     width: 14%;
     text-align: center;
@@ -59,17 +59,23 @@ a {
 .texto {
     color: white;
     text-align: center;
-    font-size: 1.3vw;
+    font-size: 1.5vw;
     border-color: #FFD902;
-    border: 0.4vw solid #FFD902;
+    border: 0.6vw solid #FFD902;
     width: 40%;
-    padding: 1%;
+    padding: 0.5%;
     position: absolute;
     top: 30%;
     left: 45%;
-    line-height: 2vw;
+    line-height: 2.5vw;
 }
 
 .imagen {
-    margin-left: 3%;
+    margin-left: 4%;
+}
+
+.imagen2 {
+    position: absolute;
+    top: 1%;
+    left: 90%;
 }
