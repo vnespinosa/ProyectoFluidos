@@ -1,0 +1,35 @@
+body {
+    background-color: #4678BB;
+}
+
+a {
+    
+    color: white;
+    text-align: center;
+    padding: auto;
+    text-decoration: none;
+    font-size: 150%;
+    line-height: 500%;
+    border-radius: 4px;
+    margin: 5%;
+}
+
+.titulo1 {
+    font-size: 300%;
+    background-color: #FFD902;
+    padding: 1% 1%;
+    height: 20%;
+    width: 25%;
+    text-align: center;
+    color: #4678BB;
+}
+
+.titulo2 {
+    font-size: 180%;
+    background-color: #FFD902;
+    padding: 1% 1%;
+    height: 20%;
+    width: 14%;
+    text-align: center;
+    color: #4678BB;
+}
