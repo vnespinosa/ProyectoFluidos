@@ -1,6 +1,6 @@
 const distancia = 11
-const maxX = 20
-const maxZ = 20
+const maxX = 3.66
+const maxZ = 2.44
 const numeroDePelotas = 5
 
 const densidad = 1
@@ -33,33 +33,12 @@ function crearPelota(x, y, z) {
 
     img.style.height = `${porcentaje}%`
     img.style.width = `${porcentaje}%`
-    img.style.left = `${ (x / maxX) * 50 + 40}%`
-    img.style.top = `${80 - (z / maxZ) * 40}%`
+    img.style.left = `${36 + (x + maxX) * 2.2}%`
+    img.style.top = `${80 - (z / maxZ) * 22}%`
 
     var body = document.getElementsByTagName("body")[0];
     body.appendChild(img);
 }
-
-
-/*
-crearPelota(0, 0, 0)
-crearPelota(2, 4, 5)
-crearPelota(6, 6, 9)
-crearPelota(8, 9, 10)
-crearPelota(13, 11, 8)
-*/
-
-/* 
-X: 10% izquierda    60% derecha
-
-Z: 40% arriba       80% abajo
-
-INPUTS: v w y 2 angulos
-
-Altura arco 7.32m
-Altura arco 2.44m
-Distancia 11m
-*/ 
 
 const Wz = phi * Math.cos(theta) * Math.cos(phi) + theta * Math.sin(phi)
 const vy = Math.sin(theta) * Math.sin(phi) * v
@@ -102,13 +81,15 @@ function tiempoFinal() {
 }
 
 final = tiempoFinal()
+/*
 for (let i = 0; i < numeroDePelotas; i++){
     x = X(final * i / (numeroDePelotas - 1))
     y = Y(final * i / (numeroDePelotas - 1))
     z = Z(final * i / (numeroDePelotas - 1))
     crearPelota(x, y, z)
 }
-
+*/
+crearPelota(3.66, 11, 2.44)
 
 console.log(Y(tiempoFinal()))
 console.log(X(2))
