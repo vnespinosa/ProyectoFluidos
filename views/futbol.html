@@ -33,20 +33,26 @@
 
     <div class="form">
         <div class="input">
-            <input type="text" id="vInicial" name="vInicial">
-            <input type="text" id="aTiro" name="aTiro">
-            <input type="text" id="vAngular" name="vAngular">
+            <input type="number" min="1" max="20" id="vInicial" name="vInicial">
+            <input type="text" min="1" max="20" id="vAngular" name="vAngular">
+            <input type="text" min="0" max="360" id="phi" name="phi">
+            <input type="text" min="0" max="360" id="theta" name="theta">
         </div>
         <div class="label">
             <p>Velocidad inicial</p>
-            <p>Ángulo de tiro</p>
             <p>Velocidad angular</p>
+            <p>Phi</p>
+            <p>Thetha</p>
         </div>
+
+        <button onclick="return recibirInputs()">Simular</button>
     </div>
 
+    <!--
     <div class="imagen">
         <img src="https://lh3.googleusercontent.com/proxy/RjRwTSyVAqjPPvqBLPaOoHq_Xrod0gA1HUCWs2Sq7YxyMBCGjXi2yOsL6tsxjTDMNr2-wT76B3SBfzCeNRHgoYfVbOaMSKOmFsfbcboc94JJJUTsdKBWEVg1-pKPomlwJf7nuMrYRVGIKAHmWQAaY-2MrtcB6Akbd_MitpQ" alt="Grafico" style="width: 16vw; height: 16vw;">
     </div>
+    -->
 
     <div class="uc">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Escudo_de_la_Pontificia_Universidad_Cat%C3%B3lica_de_Chile.svg/200px-Escudo_de_la_Pontificia_Universidad_Cat%C3%B3lica_de_Chile.svg.png" alt="Campo" style="width: 4vw; height: 4vw;">
@@ -60,5 +66,8 @@
         profesionales utilizan mucho el golpeo con efecto.
     </div>
 </body>
+
+<script src="../scripts/cookies.js"></script>
+<script src="../scripts/input.js"></script>
 
 </html>
