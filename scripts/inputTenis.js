@@ -42,28 +42,27 @@ function recibirInputs() {
     let phi = document.getElementById('phi').value
     let theta = document.getElementById('theta').value
     var correcto = true
-    var string = ""
-    if (vInicial <= 0 || vInicial > vInicialMax) {
+    if (vInicial <= 0 || vInicial > vInicialMax || vInicial == undefined || vInicial == '') {
         correcto = false
         document.getElementById('vInicial').style.borderColor = "red"
         console.log("Error en velocidad incial")
     }
-    if (vAngular <= 0 || vAngular > vAngularMax) {
+    if (vAngular <= 0 || vAngular > vAngularMax || vAngular == undefined || vAngular == '') {
         correcto = false
         document.getElementById('vAngular').style.borderColor = "red"
         console.log("Error en velocidad angular")
     }
-    if (phi < 0 || phi > phiMax) {
+    if (phi < 0 || phi > phiMax || phi == undefined || phi == '') {
         correcto = false
         document.getElementById('phi').style.borderColor = "red"
         console.log("Error en phi")
     }
-    if (theta < 0 || theta > thetaMax) {
+    if (theta < 0 || theta > thetaMax || theta == undefined || theta == '') {
         correcto = false
         document.getElementById('theta').style.borderColor = "red"
         console.log("Error en theta")
     }
-
+ 
     if (correcto) {
         console.log("correcto")
         actualizarInputs()
