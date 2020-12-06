@@ -1,11 +1,8 @@
-vInicialMax = 100
+vInicialMax = 1000
 vAngularMax = 100
 phiMax = 360
 thetaMax = 360
 
-function prueba() {
-    console.log("22222222222222")
-}
 
 function actualizarInputs() {
     let vInicial = document.getElementById('vInicial').value

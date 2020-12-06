@@ -1,5 +1,5 @@
 const distancia = 11
-const maxX = 3.66
+const maxX = 7.32 / 2 /*3.66*/
 const maxZ = 2.44
 const numeroDePelotas = 5
 
@@ -101,6 +101,26 @@ for (let i = 0; i < numeroDePelotas; i++){
     crearPelota(x, y, z)
 }
 
+function fallo() {
+    let xFinal = X(final)
+    let zFinal = Z(final)
+    let fallo = true
+    if ( Math.abs(xFinal) <= maxX && Z(final) > 0 && Z(final) < maxZ) {
+        fallo = false
+    }
+    return fallo
+}
+var resultado = document.getElementById('resultado')
+if (fallo()) {
+    console.log("FALLO")
+    resultado.appendChild(document.createTextNode('FALLASTE'))
+    resultado.style.background = 'red';
+}
+else {
+    console.log("GOL")
+    resultado.appendChild(document.createTextNode('GOL'))
+    resultado.style.background = '#3acf27';
+}
 
 console.log(Y(tiempoFinal()))
 console.log(X(2))

@@ -91,6 +91,12 @@ input {
     position: absolute;
 }
 
-.arco {
-    
+#resultado {
+    font-size: 1.5vw;
+    color: #4678BB;
+    text-align: center;
+    height: 7%;
+    width: 8%;
+    padding: 0.4%;
+    margin-left: 38%;
 }

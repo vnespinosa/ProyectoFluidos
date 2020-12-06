@@ -1,7 +1,10 @@
-vInicialMax = 100
+vInicialMax = 1000
 vAngularMax = 100
 phiMax = 360
-thetaMax = 360
+thetaMax = 360  
+/*
+Ks =0
+*/
 
 function actualizarInputs() {
     let vInicial = document.getElementById('vInicial').value
@@ -29,7 +32,6 @@ function actualizarInputs() {
     console.log("")
     window.location.replace("arco.html");
 }
-
 
 function recibirInputs() {
     document.getElementById('vInicial').style.borderColor = '#ffffff'
