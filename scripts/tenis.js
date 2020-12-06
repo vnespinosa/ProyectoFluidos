@@ -1,12 +1,12 @@
-const distancia = 11
-const maxX = 7.32 / 2 /*3.66*/
-const maxZ = 2.44
+const distancia = 23.78 /* 11.89 *2 */
+const maxX = 8.23
+const minZ = 1.07
 const numeroDePelotas = 5
 
 const densidad = 1
-const area = 0.039
-const masa = 0.45
-const D = 0.22
+const area = 0.0141
+const masa = 0.0577
+const D = 0.067
 const g = 9.81
 
 const v = getCookie('vInicialFutbol')
@@ -35,14 +35,14 @@ function aparecer(img) {
 
 function crearPelota(x, y, z) {
     let img = document.createElement("img");
-    img.src = "../img/futbol.png";
+    img.src = "../img/tenis.png";
     img.className = "pelota"
     let porcentaje = 5 - (y / distancia) * 3.5
 
     img.style.height = `${porcentaje}%`
     img.style.width = `${porcentaje}%`
     img.style.left = `${36 + (x + maxX) * 2.2}%`
-    img.style.top = `${80 - (z / maxZ) * 22}%`
+    img.style.top = `${80 - (z / minZ) * 22}%`
 
     var body = document.getElementsByTagName("body")[0];
     body.appendChild(img);
@@ -73,9 +73,6 @@ function Y(t) {
 
 function Z(t) {
     let primero = (Kd*g*v*t*t*t/6) - (Kd*Wz + Kl*v) * (v*t*t/2)
-    if ((Wz*t - (g*t*t/2) + primero) < 0) {
-        return 0
-    }
     return (Wz*t - (g*t*t/2) + primero)
 }
 
@@ -92,8 +89,9 @@ function tiempoFinal() {
 }
 
 final = tiempoFinal()
-for (let i = numeroDePelotas - 1; i > -1; i--){ 
-/*for (let i = 0; i < numeroDePelotas; i++){*/
+
+/*
+for (let i = 0; i < numeroDePelotas; i++){
     x = X(final * i / (numeroDePelotas - 1))
     y = Y(final * i / (numeroDePelotas - 1))
     z = Z(final * i / (numeroDePelotas - 1))
@@ -103,35 +101,21 @@ for (let i = numeroDePelotas - 1; i > -1; i--){
     console.log("")
     crearPelota(x, y, z)
 }
+*/
 
 function fallo() {
     let xFinal = X(final)
     let zFinal = Z(final)
     let fallo = true
-    if ( Math.abs(xFinal) <= maxX && zFinal < maxZ) {
+    if ( Math.abs(xFinal) <= maxX && Z(final) > 0 && Z(final) < minZ) {
         fallo = false
     }
     return fallo
 }
-
-function error(){
-    let error = 0
-    if (X(final) < 0 && Math.abs(X(final)) > maxX) {
-        error = x(final) + maxX
-    }
-    else if (Math.abs(X(final)) > maxX) {
-        error = X(final) - maxX
-    }
-    if (Z(final) > maxZ) {
-        error = error + Z(final) - maxZ
-    }
-    return error
-}
-
 var resultado = document.getElementById('resultado')
 if (fallo()) {
     console.log("FALLO")
-    resultado.appendChild(document.createTextNode('FALLASTE POR ' + error()))
+    resultado.appendChild(document.createTextNode('FALLASTE'))
     resultado.style.background = 'red';
 }
 else {

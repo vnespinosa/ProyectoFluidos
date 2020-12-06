@@ -30,7 +30,7 @@ function actualizarInputs() {
     createCookie('thetaTenis', theta, 1)
     
     console.log("")
-    window.location.replace("arco.html");
+    window.location.replace("canchaTenis.html");
 }
 
 function recibirInputs() {
