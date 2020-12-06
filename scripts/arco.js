@@ -9,21 +9,19 @@ const masa = 0.45
 const D = 0.22
 const g = 9.81
 
-const v = getCookie('vInicial')
-const vAngular = getCookie('vAgular')
-const phi = getCookie('phi')
-const theta = getCookie('theta')
+const v = getCookie('vInicialFutbol')
+const vAngular = getCookie('vAgularFutbol')
+const phi = getCookie('phiFutbol')
+const theta = getCookie('thetaFutbol')
 
 const Cd = 0.3
 const Cl = 0.1
 const Cs0 = 0.25
 const ms = 0.8
+const Kd = 0.013
+const Kl = 0 /*0.004*/
 
 const Sp0 = 0.1875 /* FLATA ESTO */
-const Kd = 0.013
-const Kl = 0.004
-const L2 = 20
-
 
 function crearPelota(x, y, z) {
     let img = document.createElement("img");
@@ -81,15 +79,18 @@ function tiempoFinal() {
 }
 
 final = tiempoFinal()
-/*
+
 for (let i = 0; i < numeroDePelotas; i++){
     x = X(final * i / (numeroDePelotas - 1))
     y = Y(final * i / (numeroDePelotas - 1))
     z = Z(final * i / (numeroDePelotas - 1))
+    console.log("x: " + x)
+    console.log("y: " + y)
+    console.log("z: " + z)
+    console.log("")
     crearPelota(x, y, z)
 }
-*/
-crearPelota(3.66, 11, 2.44)
+
 
 console.log(Y(tiempoFinal()))
 console.log(X(2))

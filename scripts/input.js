@@ -15,20 +15,20 @@ function actualizarInputs() {
     
     /* Revisar si inputs validos */
 
-    console.log("vInicial anterior: " + getCookie('vInicial'))
-    console.log("vAngular anterior: " + getCookie('vAngular'))
-    console.log("phi anterior: " + getCookie('phi'))
-    console.log("thetha anterior: " + getCookie('theta'))
+    console.log("vInicial anterior: " + getCookie('vInicialFutbol'))
+    console.log("vAngular anterior: " + getCookie('vAngularFutbol'))
+    console.log("phi anterior: " + getCookie('phiFutbol'))
+    console.log("thetha anterior: " + getCookie('thetaFutbol'))
     
     console.log("vInicial nueva: " + vInicial)
     console.log("vAngular nueva: " + vAngular)
     console.log("phi nueva: " + phi)
     console.log("theta nueva: " + theta)
 
-    createCookie('vInicial', vInicial, 1)
-    createCookie('vAngular', vAngular, 1)
-    createCookie('phi', phi, 1)
-    createCookie('theta', theta, 1)
+    createCookie('vInicialFutbol', vInicial, 1)
+    createCookie('vAngularFutbol', vAngular, 1)
+    createCookie('phiFutbol', phi, 1)
+    createCookie('thetaFutbol', theta, 1)
     
     console.log("")
     window.location.replace("arco.html");
@@ -50,12 +50,12 @@ function recibirInputs() {
         document.getElementById('vAngular').style.borderColor = "red"
         console.log("Error en velocidad angular")
     }
-    if (phi <= 0 || phi > phiMax) {
+    if (phi < 0 || phi > phiMax) {
         correcto = false
         document.getElementById('phi').style.borderColor = "red"
         console.log("Error en phi")
     }
-    if (theta <= 0 || theta > thetaMax) {
+    if (theta < 0 || theta > thetaMax) {
         correcto = false
         document.getElementById('theta').style.borderColor = "red"
         console.log("Error en theta")
