@@ -23,6 +23,16 @@ const Kl = 0 /*0.004*/
 
 const Sp0 = 0.1875 /* FLATA ESTO */
 
+function desaparecer(img) {
+    img.style.visibility = 'hidden'
+    console.log("desaparece")
+}
+
+function aparecer(img) {
+    img.style.visibility = 'visible'
+    console.log("aparece")
+}
+
 function crearPelota(x, y, z) {
     let img = document.createElement("img");
     img.src = "../img/futbol.png";

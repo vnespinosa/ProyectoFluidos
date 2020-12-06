@@ -11,7 +11,7 @@
     <title>Fútbol</title>
 </head>
 
-<link rel="stylesheet" href="../styles/futbol.css">
+<link rel="stylesheet" href="../styles/input.css">
 
 <body>
 
@@ -34,15 +34,15 @@
     <div class="form">
         <div class="input">
             <input type="number" min="1" max="20" id="vInicial" name="vInicial">
-            <input type="text" min="1" max="20" id="vAngular" name="vAngular">
-            <input type="text" min="0" max="360" id="phi" name="phi">
-            <input type="text" min="0" max="360" id="theta" name="theta">
+            <input type="number" min="1" max="20" id="vAngular" name="vAngular">
+            <input type="number" min="0" max="360" id="phi" name="phi">
+            <input type="number" min="0" max="360" id="theta" name="theta">
         </div>
         <div class="label">
             <p>Velocidad inicial</p>
             <p>Velocidad angular</p>
             <p>Phi</p>
-            <p>Thetha</p>
+            <p>Theta</p>
         </div>
 
         <button onclick="return recibirInputs()">Simular</button>
@@ -69,6 +69,6 @@
 
 <script src="../scripts/resize.js"></script>
 <script src="../scripts/cookies.js"></script>
-<script src="../scripts/input.js"></script>
+<script src="../scripts/inputFutbol.js"></script>
 
 </html>

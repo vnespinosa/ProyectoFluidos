@@ -7,8 +7,6 @@ function ajustarPantalla(){
 
     let ventana = document.getElementsByTagName("body")[0]
     ventana.setAttribute("style", `zoom: ${porcentaje}%` )
-    console.log("ATLTO: " + alto)
-    console.log("ANCHO: " + ancho)
 }
 
 ajustarPantalla()
