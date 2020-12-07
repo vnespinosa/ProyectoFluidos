@@ -156,28 +156,26 @@ li {
 
 .imagen3 {
     position: absolute;
-    top: 170%;
-    left: 40%;
+    top: 185%;
+    left: 20%;
+    border: 0.6vw solid #FFD902;
 }
 
 .imagen4 {
     position: absolute;
-    top: 200%;
-    left: 37%;
+    top: 180%;
+    left: 60%;
+    border: 0.6vw solid #FFD902;
 }
 
-.texto5 {
-    color: white;
-    text-align: center;
+.titulo3 {
     font-size: 1.5vw;
-    border-color: #FFD902;
-    border: 0.6vw solid #FFD902;
-    width: 30%;
-    padding: 0.5%;
-    position: relative;
-    line-height: 2.5vw;
-    margin-top: 50%;
-    margin-left: 20%;
-    width: auto;
-    height: 150%;
+    background-color: #FFD902;
+    padding: 2% 2%;
+    height: 15%;
+    width: 14%;
+    text-align: center;
+    color: #4678BB;
+    margin-left: 42%;
+    margin-top: 5%;
 }
