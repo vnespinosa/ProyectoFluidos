@@ -131,7 +131,7 @@ function error(){
 var resultado = document.getElementById('resultado')
 if (fallo()) {
     console.log("FALLO")
-    resultado.appendChild(document.createTextNode('FALLASTE POR ' + error()))
+    resultado.appendChild(document.createTextNode('FALLASTE POR ' + error() + ' METROS'))
     resultado.style.background = 'red';
 }
 else {

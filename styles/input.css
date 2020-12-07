@@ -56,7 +56,7 @@ a {
     padding: 0.5%;
     position: absolute;
     top: 30%;
-    left: 45%;
+    left: 55%;
     line-height: 2.5vw;
 }
 
@@ -110,5 +110,12 @@ button {
     cursor: pointer;  
     text-align: center;
     border-radius: 4px;
-    
+}
+
+.plano {
+    margin-left: 30%;
+    margin-top: -20%;
+    width: 18.2%;
+    border: 0.4vw solid;
+    border-color: #FFD902;
 }
