@@ -83,6 +83,7 @@ function tiempoFinal() {
 }
 
 final = tiempoFinal()
+
 for (let i = numeroDePelotas - 1; i > -1; i--){ 
     x = X(final * i / (numeroDePelotas - 1))
     y = Y(final * i / (numeroDePelotas - 1))
@@ -113,7 +114,7 @@ function error(){
         error = X(final) - maxX
     }
     if (Z(final) > maxZ) {
-        error = error + Z(final) - maxZ
+        error = error * error + (Z(final) - maxZ) * (Z(final) - maxZ)
     }
     return error
 }
