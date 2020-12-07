@@ -23,15 +23,6 @@ const Kl = 0 /*0.004*/
 
 const Sp0 = 0.1875
 
-function desaparecer(img) {
-    img.style.visibility = 'hidden'
-    console.log("desaparece")
-}
-
-function aparecer(img) {
-    img.style.visibility = 'visible'
-    console.log("aparece")
-}
 
 function crearPelota(x, y, z) {
     let img = document.createElement("img");
@@ -83,7 +74,7 @@ function Z(t) {
 function tiempoFinal() {
     let opcion1 = (v - Math.sqrt( v*v *(-2*distancia*Kd + 1) )) / (Kd * v*v)
     let opcion2 = (v + Math.sqrt( v*v *(-2*distancia*Kd + 1) )) / (Kd * v*v)
-    if ( Math.abs( Y(opcion1) - 12) < Math.abs( Y(opcion2) - 12)) {
+    if ( Math.abs( Y(opcion1) - distancia) < Math.abs( Y(opcion2) - distancia)) {
         return opcion1    
     }
     else {
@@ -93,7 +84,6 @@ function tiempoFinal() {
 
 final = tiempoFinal()
 for (let i = numeroDePelotas - 1; i > -1; i--){ 
-/*for (let i = 0; i < numeroDePelotas; i++){*/
     x = X(final * i / (numeroDePelotas - 1))
     y = Y(final * i / (numeroDePelotas - 1))
     z = Z(final * i / (numeroDePelotas - 1))

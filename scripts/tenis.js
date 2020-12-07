@@ -9,10 +9,10 @@ const masa = 0.0577
 const D = 0.067
 const g = 9.81
 
-const v = getCookie('vInicialFutbol')
-const vAngular = getCookie('vAgularFutbol')
-const phi = getCookie('phiFutbol')
-const theta = getCookie('thetaFutbol')
+const v = getCookie('vInicialTenis')
+const vAngular = getCookie('vAgularTenis')
+const phi = getCookie('phiTenis')
+const theta = getCookie('thetaTenis')
 
 const Cd = 0.3
 const Cl = 0.1
@@ -23,26 +23,16 @@ const Kl = 0 /*0.004*/
 
 const Sp0 = 0.1875
 
-function desaparecer(img) {
-    img.style.visibility = 'hidden'
-    console.log("desaparece")
-}
-
-function aparecer(img) {
-    img.style.visibility = 'visible'
-    console.log("aparece")
-}
-
 function crearPelota(x, y, z) {
     let img = document.createElement("img");
     img.src = "../img/tenis.png";
     img.className = "pelota"
-    let porcentaje = 5 - (y / distancia) * 3.5
+    let porcentaje = 2
 
     img.style.height = `${porcentaje}%`
     img.style.width = `${porcentaje}%`
-    img.style.left = `${36 + (x + maxX) * 2.2}%`
-    img.style.top = `${80 - (z / minZ) * 22}%`
+    img.style.left = `${10 + (y / distancia) * 68}%`
+    img.style.top = `${80 - (z / minZ) * 7.5}%`
 
     var body = document.getElementsByTagName("body")[0];
     body.appendChild(img);
@@ -73,6 +63,9 @@ function Y(t) {
 
 function Z(t) {
     let primero = (Kd*g*v*t*t*t/6) - (Kd*Wz + Kl*v) * (v*t*t/2)
+    if ((Wz*t - (g*t*t/2) + primero) < 0) {
+        return 0
+    }
     return (Wz*t - (g*t*t/2) + primero)
 }
 
@@ -80,7 +73,18 @@ function Z(t) {
 function tiempoFinal() {
     let opcion1 = (v - Math.sqrt( v*v *(-2*distancia*Kd + 1) )) / (Kd * v*v)
     let opcion2 = (v + Math.sqrt( v*v *(-2*distancia*Kd + 1) )) / (Kd * v*v)
-    if ( Math.abs( Y(opcion1) - 12) < Math.abs( Y(opcion2) - 12)) {
+    if ( Math.abs( Y(opcion1) - distancia) < Math.abs( Y(opcion2) - distancia)) {
+        return opcion1
+    }
+    else {
+        return opcion2
+    }
+}
+
+function tiempoMalla() {
+    let opcion1 = (v - Math.sqrt( v*v *(-distancia*Kd + 1) )) / (Kd * v*v)
+    let opcion2 = (v + Math.sqrt( v*v *(-distancia*Kd + 1) )) / (Kd * v*v)
+    if ( Math.abs( Y(opcion1) - distancia/2) < Math.abs( Y(opcion2) - distancia/2)) {
         return opcion1    
     }
     else {
@@ -88,9 +92,16 @@ function tiempoFinal() {
     }
 }
 
-final = tiempoFinal()
+var final = tiempoFinal()
+var estado = "no malla"
+if (Z(tiempoMalla()) < minZ) {
+    /* CHOCO EN LA RED */
+    final = tiempoMalla()
+    estado = "malla"
+}
 
 /*
+for (let i = numeroDePelotas - 1; i > -1; i--){ */
 for (let i = 0; i < numeroDePelotas; i++){
     x = X(final * i / (numeroDePelotas - 1))
     y = Y(final * i / (numeroDePelotas - 1))
@@ -101,27 +112,33 @@ for (let i = 0; i < numeroDePelotas; i++){
     console.log("")
     crearPelota(x, y, z)
 }
-*/
+
 
 function fallo() {
-    let xFinal = X(final)
-    let zFinal = Z(final)
+    let yFinal = Y(tiempoFinal())
     let fallo = true
-    if ( Math.abs(xFinal) <= maxX && Z(final) > 0 && Z(final) < minZ) {
+    if ( yFinal <= distancia) {
         fallo = false
     }
     return fallo
 }
 var resultado = document.getElementById('resultado')
-if (fallo()) {
-    console.log("FALLO")
-    resultado.appendChild(document.createTextNode('FALLASTE'))
-    resultado.style.background = 'red';
+if (estado == 'no malla') {
+    if (fallo()) {
+        console.log("FALLO")
+        resultado.appendChild(document.createTextNode('FALLASTE'))
+        resultado.style.background = 'red';
+    }
+    else {
+        console.log("GOL")
+        resultado.appendChild(document.createTextNode('GOL'))
+        resultado.style.background = '#3acf27';
+    }
 }
 else {
-    console.log("GOL")
-    resultado.appendChild(document.createTextNode('GOL'))
-    resultado.style.background = '#3acf27';
+    console.log("MALLA")
+    resultado.appendChild(document.createTextNode('CHOCÓ EN LA RED'))
+    resultado.style.background = 'red'; 
 }
 
 console.log(Y(tiempoFinal()))

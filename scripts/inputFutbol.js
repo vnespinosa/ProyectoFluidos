@@ -9,8 +9,6 @@ function actualizarInputs() {
     let vAngular = document.getElementById('vAngular').value
     let phi = document.getElementById('phi').value
     let theta = document.getElementById('theta').value
-    
-    /* Revisar si inputs validos */
 
     console.log("vInicial anterior: " + getCookie('vInicialFutbol'))
     console.log("vAngular anterior: " + getCookie('vAngularFutbol'))
