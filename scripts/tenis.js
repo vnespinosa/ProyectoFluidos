@@ -130,8 +130,8 @@ if (estado == 'no malla') {
         resultado.style.background = 'red';
     }
     else {
-        console.log("GOL")
-        resultado.appendChild(document.createTextNode('GOL'))
+        console.log("BUEN SAQUE!")
+        resultado.appendChild(document.createTextNode('BUEN SAQUE!'))
         resultado.style.background = '#3acf27';
     }
 }
