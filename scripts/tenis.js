@@ -115,7 +115,7 @@ for (let i = 0; i < numeroDePelotas; i++){
 
 
 function fallo() {
-    let yFinal = Y(tiempoFinal())
+    let yFinal = Y(tiempoMalla())
     let fallo = true
     if ( yFinal <= distancia) {
         fallo = false
