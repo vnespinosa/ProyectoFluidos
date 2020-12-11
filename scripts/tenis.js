@@ -92,6 +92,18 @@ function tiempoMalla() {
     }
 }
 
+function tiempoPiso() { /* Creo que la formula esta mal */
+    let opcion1 = (v - Math.sqrt( v*v *(1) )) / (Kd * v*v)
+    let opcion2 = (v + Math.sqrt( v*v *(1) )) / (Kd * v*v)
+    if ( Math.abs( Z(opcion1)) < Math.abs( Z(opcion2))) {
+        return opcion1    
+    }
+    else {
+        return opcion2
+    }
+}
+
+
 var final = tiempoFinal()
 var estado = "no malla"
 if (Z(tiempoMalla()) < minZ) {
@@ -115,7 +127,7 @@ for (let i = 0; i < numeroDePelotas; i++){
 
 
 function fallo() {
-    let yFinal = Y(tiempoMalla())
+    let yFinal = Y(tiempoPiso())
     let fallo = true
     if ( yFinal <= distancia) {
         fallo = false
